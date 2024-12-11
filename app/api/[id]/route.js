@@ -4,6 +4,6 @@ const endpointSchema = z.object({
   id: z.number(),
 });
 
-export async function GET(request) {
-  const { id } = endpointSchema.parse({ id: "should-have-been-a-number" });
+export async function GET(request, { params }) {
+  const { id } = endpointSchema.parse(await params);
 }
